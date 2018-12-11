@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Stock Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{ url_for('static', filename='style/stock_viewer.css') }}"" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/stock_viewer.js')}}"></script>
+</head>
+<body>
+    <div>
+        <input type="text" id="symbol_input" placeholder="Symbol..." style="text-transform:uppercase">
+        <button class="search_button" onclick="change_symbol()"><span>Search!</span></button>
+    </div>
+    <div style="color:white">
+        Graph format:
+        <select>
+            <option value="line_format">Line</option>
+            <option value="candlestick_format">Candlestick</option>
+        </select>
+    </div>
+    <h1 class="stock_title" id="stock_title"></h1>
+    <div id="graph_holder"></div>
+</body>
+</html>
