@@ -2,13 +2,13 @@
 
 function change_symbol()
 {
-    var symbol = document.getElementById("symbol_input").value;
+    var symbol = document.getElementById("symbol_input").value.toUpperCase();
     if(symbol)
     {
-        document.getElementById('stock_title').innerHTML = '<font color="#27e2e2">Loading symbol ' + symbol.toUpperCase() + '...</font>';
+        document.getElementById('stock_title').innerHTML = `<font color="#27e2e2">Loading symbol ${symbol}...</font>`;
 
-
-        var url = "/stock_data?symbol=" + symbol + "&format=line";
+        var compact = document.getElementById('compact_checkbox').checked;
+        var url = `/stock_data?symbol=${symbol}&format=line&compact=${compact}`;
         var xmlHttp = new XMLHttpRequest(); 
         xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState === 4 && xmlHttp.status === 200)

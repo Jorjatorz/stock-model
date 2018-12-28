@@ -15,6 +15,7 @@ def get_daily(symbol, full = False, format = 'pandas'):
         full {bool} -- If True returns the full stock history. If not, only the last 100 elements (default: {False})
     """
     try:
+        print(full)
         data, _ = TimeSeries(key=API_KEY, output_format=format).get_daily(symbol=symbol, outputsize='full' if full else 'compact')
     except:
         return None

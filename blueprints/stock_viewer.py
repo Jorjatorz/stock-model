@@ -13,8 +13,9 @@ def index():
 def get_symbol_daily():
     symbol = request.args.get('symbol')
     graph_format = request.args.get('format')
+    compact = True if request.args.get('compact') == 'true' or request.args.get('compact') is None else False
     if symbol and graph_format:
-        data = get_daily(symbol, format='json')
+        data = get_daily(symbol, format='json', full= not compact)
         if data is not None:
             if graph_format == 'line':
                 trace = plotly.graph_objs.Scatter(
