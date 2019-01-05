@@ -6,6 +6,9 @@ __pycache__/
 # VS Code
 .vscode/
 
+# Project
+stock_data/
+
 # C extensions
 *.so
 
